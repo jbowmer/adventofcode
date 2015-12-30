@@ -26,4 +26,7 @@ for i in content:
     bow_ribbon = width * height * length
     ribbon = ribbon + wrap_ribbon + bow_ribbon
     
+
+print ribbon
+    
     
