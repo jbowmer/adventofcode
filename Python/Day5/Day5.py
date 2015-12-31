@@ -42,6 +42,31 @@ for i in content:
         
 print nice_string_count
 
+def is_really_nice(s):
+    first = False
+    for i in range(len(s) - 3):
+        sub = s[i: i + 2]
+        if sub in s[i + 2:]:
+            first = True
+            print("{} is really nice and repeats with {}".format(s, sub))
+            break
+    if not first:
+        return False
+    second = False
+    for i in range(len(s) - 2):
+        if s[i] == s[i + 2]:
+            second = True
+            break
+    return second
+
+really_nice_count = 0
+
+for i in content:
+    if is_really_nice(i):
+        really_nice_count += 1
+
+print really_nice_count
+
 
         
     
