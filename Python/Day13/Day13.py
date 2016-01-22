@@ -50,5 +50,29 @@ for seating in seatings:
 
 print(max_happiness)
 
+#Part2
+
+
+for k in list(relations.keys()):
+    relations['me'][k] = 0
+    relations[k]['me'] = 0
+
+seatings = list(permutations(relations.keys()))
+max_happiness = 0
+for seating in seatings:
+    happiness = 0
+    for i in range(0, len(seating)):
+        try:
+            happiness += relations[seating[i]][seating[i+1]]
+        except IndexError:
+            happiness += relations[seating[i]][seating[0]]
+        try:
+            happiness += relations[seating[i]][seating[i-1]]
+        except IndexError:
+            happiness += relations[seating[i]][seating[-1]]
+    if happiness > max_happiness:
+        max_happiness = happiness
+
+print(max_happiness)
 
 
