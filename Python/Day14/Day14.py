@@ -11,7 +11,7 @@ input_string = open('input.txt', 'r')
 
 content = input_string.readlines()
     
-total_seconds = 2053
+total_seconds = 2503
 distances = dict()
 
 for i in content:
@@ -31,10 +31,7 @@ for i in content:
 
 
 
-for i in distances:
 
-    q, r = divmod(total_seconds, travel + rest)
-    distance = (q*travel + min(r, travel)) * speed
     
     
 
