@@ -7,17 +7,28 @@ Created on Mon Jan  4 15:54:32 2016
 
 #AdventofCode, Day10
 
-from itertools import groupby
+input_string = '1321131112'
 
-def look_and_say(input):
-    return ''.join(str(len(list(v))) + k for k, v in groupby(input))
-
-p1 = input
-for _ in range(40):
-    p1 = look_and_say(p1)
-print(len(p1))
-
-p2 = input
-for _ in range(50):
-    p2 = look_and_say(p2)
-print(len(p2))
+new_string = ''
+n = 1
+while n < 41:
+    new_string = ''    
+    count = 1
+    for i in range(len(input_string)):
+        int_name = input_string[i]
+        try:
+            if input_string[i + 1] == input_string[i]:
+                count += 1         
+            else:
+                new_string = new_string + str(count) + int_name
+                count = 1
+        except:
+            if input_string[i -1] == input_string[i]:
+                new_string = new_string + str(count) + int_name
+            else:
+                new_string = new_string + str(count) + int_name 
+        #print new_string
+    input_string = new_string
+    n += 1
+    
+print len(new_string)
